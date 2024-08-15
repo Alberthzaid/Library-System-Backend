@@ -21,4 +21,4 @@ class connectDB:
 
 
 Connect = connectDB(key, url)
-Connect.connect()
+
