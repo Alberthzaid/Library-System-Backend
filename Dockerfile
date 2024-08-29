@@ -2,22 +2,24 @@ FROM python:3.11-slim
 
 LABEL authors="Library-Backend"
 
-# Establecer el directorio de trabajo en el contenedor
+# Establece el directorio de trabajo en el contenedor
 WORKDIR /app
 
-# Copiar el archivo de requisitos al contenedor
-COPY requirements.txt ./
+# Copia los archivos de requerimientos a la imagen
+COPY requirements.txt requirements.txt
 
-# Instalar las dependencias
+# Instala las dependencias necesarias
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copiar el resto del código de la aplicación
+# Copia el resto del código de la aplicación a la imagen
 COPY . .
 
-# Exponer el puerto que utilizará la aplicación
+# Define la variable de entorno para Flask
+ENV FLASK_APP=app.py
+
+# Expone el puerto en el que la app de Flask correrá
 EXPOSE 5000
 
-# Comando para ejecutar la aplicación
-CMD ["python", "app.py"]
-
+# Comando para correr la aplicación
+CMD ["flask", "run", "--host=0.0.0.0"]
 

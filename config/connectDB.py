@@ -1,7 +1,5 @@
 from typing import Type
-
 from supabase._sync.client import SyncClient
-from env import key, url
 from supabase import create_client, Client
 
 
@@ -12,13 +10,9 @@ class connectDB:
 
     def connect(self) -> SyncClient | Type[ConnectionError]:
         try:
-            client: Client = create_client(self.url, self.key)
+            client: Client = create_client(self.__url, self.__key)
             print("=== Success ===")
             return client
         except ConnectionError:
-            print("Connection error")
+            print("=== CONNECTION ERROR ===")
             return ConnectionError
-
-
-Connect = connectDB(key, url)
-

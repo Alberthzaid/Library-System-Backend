@@ -1,11 +1,10 @@
 from typing import List
 
 class Book():
-    def __init__(self , name:str , version:str , gender:str , id:int, disable:bool ):
+    def __init__(self , name:str , version:str  ,gender:str,disable:bool ):
         self.__name: str = name
         self.__version: str = version
         self.__gender:str = gender
-        self.__id:int = id
         self.__disable:bool = disable
 
     def getName(self)-> str:
@@ -17,8 +16,16 @@ class Book():
     def getVersion(self)-> str:
         return self.__version
 
-    def getId(self)-> int:
-        return self.__id
+
 
     def getDisable(self)-> bool:
         return self.__disable
+
+    def getBody(self):
+        body ={
+            "name": self.getName(),
+            "gender": self.getGender(),
+            "version":self.getVersion(),
+            "disable":self.getDisable()
+               }
+        return body
