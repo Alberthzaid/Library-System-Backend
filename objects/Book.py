@@ -27,5 +27,5 @@ class Book():
             "gender": self.getGender(),
             "version":self.getVersion(),
             "disable":self.getDisable()
-               }
+            }
         return body

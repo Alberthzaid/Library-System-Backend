@@ -11,7 +11,6 @@ class connectDB:
     def connect(self) -> SyncClient | Type[ConnectionError]:
         try:
             client: Client = create_client(self.__url, self.__key)
-            print("=== Success ===")
             return client
         except ConnectionError:
             print("=== CONNECTION ERROR ===")
